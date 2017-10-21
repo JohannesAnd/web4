@@ -1,0 +1,5 @@
+<div class="imageContainer">
+  <img class="image"
+    *ngFor="let pokemon of pokemons | async"
+    src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/{{pokemon.number}}.png/">
+</div>

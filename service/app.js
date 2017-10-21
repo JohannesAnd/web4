@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const morgan = require('morgan');
+const cors = require('cors');
 
 const configPassport = require('./configs/passport');
 const configDatabase = require('./configs/database');
@@ -13,6 +14,8 @@ const authRouter = require('./routes/authRoutes');
 const pokemonRouter = require('./routes/pokemonRoutes');
 
 const app = express();
+
+app.use(cors());
 
 app.use(
   session({
