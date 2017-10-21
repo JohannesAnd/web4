@@ -38,6 +38,7 @@ app.use(bodyParser.json());
 // Parse cookies
 app.use(cookieParser());
 
+// Add routes
 app.use('/users', userRouter());
 app.use('/', authRouter());
 
