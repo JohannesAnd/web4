@@ -3,8 +3,6 @@ module.exports = () => {
     if (req.isAuthenticated()) {
       return next();
     }
-    res.send(401, {
-      err: 'Not authenticated'
-    });
+    res.status(401).send('Not authenticated');
   };
 };

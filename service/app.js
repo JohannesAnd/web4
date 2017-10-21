@@ -3,12 +3,14 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const morgan = require('morgan');
 
 const configPassport = require('./configs/passport');
 const configDatabase = require('./configs/database');
 
 const userRouter = require('./routes/userRoutes');
 const authRouter = require('./routes/authRoutes');
+const pokemonRouter = require('./routes/pokemonRoutes');
 
 const app = express();
 
@@ -19,6 +21,8 @@ app.use(
     resave: true
   })
 );
+
+app.use(morgan('dev'));
 
 // Connect to mongodb
 configDatabase();
@@ -39,7 +43,8 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // Add routes
-app.use('/users', userRouter());
 app.use('/', authRouter());
+app.use('/users', userRouter());
+app.use('/pokemons', pokemonRouter());
 
 module.exports = app;

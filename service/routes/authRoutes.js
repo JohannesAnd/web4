@@ -5,13 +5,13 @@ const { authController } = require('../controllers');
 module.exports = () => {
   const authRouter = express.Router();
 
-  authRouter.use('/register', authController.register);
-  authRouter.use(
+  authRouter.post('/register', authController.register);
+  authRouter.post('/logout', authController.logout);
+  authRouter.post(
     '/login',
     passport.authenticate('local'),
     authController.login
   );
-  authRouter.use('/logout', authController.logout);
 
   return authRouter;
 };

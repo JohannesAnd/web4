@@ -7,26 +7,19 @@ module.exports = db => {
       User.register(
         new User({ username: req.body.username }),
         req.body.password,
-        function(err) {
-          if (err) {
-            console.log('error while user register!', err);
-            return next(err);
-          }
+        err => {
+          if (err) next(err);
 
-          console.log('user registered!');
-
-          res.send(200, { status: 'OK, user registered' });
+          res.status(200).send('OK');
         }
       );
     },
     login: (req, res, next) => {
-      res.send(200, { status: 'OK, logged in' });
+      res.status(200).send('OK');
     },
     logout: (req, res) => {
       req.logout();
-      res.send(200, {
-        status: 'OK'
-      });
+      res.status(200).send('OK');
     }
   };
 };

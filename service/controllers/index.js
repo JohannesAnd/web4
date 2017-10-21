@@ -1,5 +1,9 @@
-const db = require('../configs/database');
+const models = {
+  Pokemon: require('../models/Pokemon'),
+  User: require('../models/User')
+};
 
-// Using dependency injection for easier testing and scalability
-module.exports.userController = require('./userController')(db);
-module.exports.authController = require('./authController')(db);
+// Dependency injection for easier testing
+module.exports.pokemonController = require('./pokemonController')(models);
+module.exports.authController = require('./authController')(models);
+module.exports.userController = require('./userController')(models);
