@@ -5,9 +5,10 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
 const configPassport = require('./configs/passport');
+const configDatabase = require('./configs/database');
 
-const { authController } = require('./controllers');
 const userRouter = require('./routes/userRoutes');
+const authRouter = require('./routes/authRoutes');
 
 const app = express();
 
@@ -18,6 +19,12 @@ app.use(
     resave: true
   })
 );
+
+// Connect to mongodb
+configDatabase();
+
+// Configure passport
+configPassport(passport);
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -31,12 +38,7 @@ app.use(bodyParser.json());
 // Parse cookies
 app.use(cookieParser());
 
-// Configure passport
-configPassport();
-
-app.use('/login', authController.login);
-app.use('/logout', authController.logout);
-
 app.use('/users', userRouter());
+app.use('/', authRouter());
 
 module.exports = app;
