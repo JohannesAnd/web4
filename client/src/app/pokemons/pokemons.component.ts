@@ -17,18 +17,7 @@ export class PokemonsComponent implements OnInit {
   pokemons: Observable<Pokemon[]>;
 
   ngOnInit(): void {
-    this.pokemons = this.pokemonsService.getPokemons();
-  }
-
-  getImageURL(number): string {
-    console.log(number);
-    let stringed = number;
-
-    while (stringed.length < 3) {
-      stringed = '0' + stringed;
-    }
-    const res = `url(https://assets.pokemon.com/assets/cms2/img/pokedex/full/${stringed}.png)`;
-    console.log(res);
-    return `{background-image: ${res}}`;
+    this.pokemons = this.pokemonsService.pokemons$;
+    this.pokemonsService.getPokemons();
   }
 }
