@@ -1,8 +1,26 @@
-.imageContainer {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
+.wrapper {
 }
 
-.image {
+.table {
   width: 100%;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+.header {
+}
+
+.row {
+}
+
+th {
+  border-bottom: 1px solid black;
+  text-align: left;
+}
+
+th,
+td {
+  padding: 15px;
 }
