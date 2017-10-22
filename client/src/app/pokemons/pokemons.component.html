@@ -1,4 +1,5 @@
 <div class="wrapper">
+  <button class="getPokemonsButton" #getPokemons mat-button>Get pokemons</button>
   <table class="table">
     <tr class="header">
       <th>Number</th>
@@ -14,7 +15,7 @@
       <th>Generation</th>
       <th>Legendary</th>
     </tr>
-    <tr class="row" *ngFor="let pokemon of pokemons | async">
+    <tr class="row" *ngFor="let pokemon of pokemons$ | async">
       <td>{{pokemon.number}}</td>
       <td>{{pokemon.name}}</td>
       <td>{{pokemon.primaryType}}</td>

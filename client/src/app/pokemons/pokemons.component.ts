@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Observable } from 'rxjs/Rx';
 
 import { PokemonsService } from '../pokemons.service';
 
@@ -12,12 +12,18 @@ import { Pokemon } from '../shared/pokemon.model';
   styleUrls: ['./pokemons.component.css']
 })
 export class PokemonsComponent implements OnInit {
+  @ViewChild('getPokemons') getPokemons;
+
+  pokemons$: Observable<Pokemon[]>;
+
   constructor(private pokemonsService: PokemonsService) {}
 
-  pokemons: Observable<Pokemon[]>;
-
   ngOnInit(): void {
-    this.pokemons = this.pokemonsService.pokemons$;
-    this.pokemonsService.getPokemons();
+    this.pokemons$ = this.pokemonsService.pokemons$;
+
+    Observable.fromEvent(
+      this.getPokemons._elementRef.nativeElement,
+      'click'
+    ).subscribe(e => this.pokemonsService.getPokemons());
   }
 }

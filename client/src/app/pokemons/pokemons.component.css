@@ -1,4 +1,6 @@
 .wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .table {
@@ -23,4 +25,8 @@ th {
 th,
 td {
   padding: 15px;
+}
+
+.getPokemonsButton {
+  margin: 0 auto;
 }
