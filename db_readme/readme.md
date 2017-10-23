@@ -35,14 +35,14 @@ The dataset is in the same folder as this readme.
 
 - Create the db & import dataset.
 
-This will create a collection 'pokemons' in the pokemon database (The drop command makes it drop the existing collection if it exist). The --headerline tells it how to interpret the fields (first line in the csv).
+This will create a collection 'pokemons' in the web4 database (The drop command makes it drop the existing collection if it exist). The --headerline tells it how to interpret the fields (first line in the csv).
 
 *Note: In the original dataset from the zip file the headerline is different from what we use. This is already changed in the included Pokemon.csv, but if you unzip it yourself make sure to change it.*
 
 ```
-$ mongoimport --db pokemon --collection pokemons --drop --type csv --headerline --file Pokemon.csv
+$ mongoimport --db web4 --collection pokemons --drop --type csv --headerline --file Pokemon.csv
 2017-10-21T21:01:26.284+0200	connected to: localhost
-2017-10-21T21:01:26.284+0200	dropping: pokemon.pokemons
+2017-10-21T21:01:26.284+0200	dropping: web4.pokemons
 2017-10-21T21:01:26.814+0200	imported 800 documents
 ```
 
@@ -57,7 +57,7 @@ $ mongo
 
 - Use correct db
 ```
-> use pokemon
+> use web4
 switched to db pokemon
 ```
 
