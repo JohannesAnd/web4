@@ -12,22 +12,22 @@
       <th>Special Attack</th>
       <th>Special Defence</th>
       <th>Speed</th>
-      <th>Generation</th>
-      <th>Legendary</th>
     </tr>
-    <tr class="row" *ngFor="let pokemon of pokemons$ | async">
+    <tr
+      class="row"
+      *ngFor="let pokemon of pokemons$ | async"
+      [style.color]="pokemon.color_1"
+      >
       <td>{{pokemon.number}}</td>
       <td>{{pokemon.name}}</td>
-      <td>{{pokemon.primaryType}}</td>
-      <td>{{pokemon.secondaryType}}</td>
-      <td>{{pokemon.health}}</td>
+      <td>{{pokemon.type_1}}</td>
+      <td>{{pokemon.type_2}}</td>
+      <td>{{pokemon.hp}}</td>
       <td>{{pokemon.attack}}</td>
-      <td>{{pokemon.defence}}</td>
-      <td>{{pokemon.specialAttack}}</td>
-      <td>{{pokemon.specialDefence}}</td>
+      <td>{{pokemon.defense}}</td>
+      <td>{{pokemon.special_attack}}</td>
+      <td>{{pokemon.special_defense}}</td>
       <td>{{pokemon.speed}}</td>
-      <td>{{pokemon.generation}}</td>
-      <td>{{pokemon.legendary}}</td>
     <tr>
   </table>
 </div>
