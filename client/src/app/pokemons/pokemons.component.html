@@ -1,5 +1,4 @@
 <div class="wrapper pokemons-listing">
-  <button class="getPokemonsButton" #getPokemons mat-button>Get pokemons</button>
   <table class="table">
     <tr class="header">
       <th>Number</th>
@@ -15,20 +14,26 @@
     </tr>
   </table>
 
-  <div class="content">
-    <div class="">
+  <div class="content col-sm-12 col-md-12 col-lg-12">
+    <div class="search-area col-sm-12 col-md-3 col-ld-3">
     </div>
-    <div class="pokemon-results col-md-9">
+    <div class="pokemon-results col-sm-12 col-md-9 col-lg-9">
       <div class="row">
-      <div class="col-sm-6"
-        *ngFor="let pokemon of pokemons$ | async"
-        [style.color]="pokemon.color_1"
-        >
-        <div class="listing-element">
-          {{pokemon.number}}
+        <div class="col-sm-6 col-md-6 col-lg-4 hvr-bounce-in"
+          *ngFor="let pokemon of pokemons$ | async">
+          <div class="listing-element" [ngStyle]="{'background': 'radial-gradient(circle,' + pokemon.color_1 + ', ' + shadeColor2(pokemon.color_1, -0.5) + ')'}">
+            <div class="number">
+              {{pokemon.number}}
+            </div>
+            <div class="img-container">
+              <img class="img" alt="{{pokemon.name}}" src="{{getImageSource(pokemon.number)}}">
+            </div>
+            <div class="name">
+              {{capitalizeFirstLetter(pokemon.name)}}
+            </div>
+          </div>
         </div>
-      </div>
-      </div>
+        </div>
     </div>
   </div>
 </div>

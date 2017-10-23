@@ -1,18 +1,97 @@
 /* Pokemon Listing */
 .pokemons-listing {
 
+  * {
+    transition: .5s all;
+  }
+
   .content {
-    display: flex;
-    justify-content: space-between;
+    display: block;
 
-    .row{
-      display: flex;
-      align-self: flex-end;
+    .row {
 
-      .listing-element{
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-        margin: 0 0 30px 0;
+      .hvr-bounce-in {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px transparent;
+        -webkit-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+
+        &:hover{
+          cursor: pointer;
+          z-index: 99;
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+          -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+          transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+        }
+
+        &:active{
+          cursor: pointer;
+          z-index: 99;
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+          -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+          transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+        }
+
+        &:focus{
+          cursor: pointer;
+          z-index: 99;
+          -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+          -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+          transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+        }
       }
+
+      .listing-element {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.58);
+        margin: 0 0 30px 0;
+        height: 150px;
+        border-radius: 5px;
+        padding: 2% 5%;
+
+
+        .number {
+          color: #f8f8f8;
+          font-family: 'Raleway', sans-serif;
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 32px;
+          margin: 0 0 24px;
+          text-shadow: 2px 2px rgba(55, 55, 55, 0.5);
+          display: inline;
+        }
+        .img-container{
+          position: absolute;
+          bottom: 30px;
+
+          .img{
+            max-height: 120px;
+          }
+        }
+
+        .name{
+          display: inline-block;
+          font-family: 'Archivo Black', sans-serif;
+          color: #f8f8f8;
+          font-weight: 600;
+          font-size: 30px;
+          text-shadow: 2px 2px rgba(55, 55, 55, 0.5);
+          position: absolute;
+          right: 10%;
+          top: 10%;
+          transform: rotate(7deg);
+        }
+      }
+    }
+
+    .search-area {
+      min-width: 5px;
+      min-height: 5px;
     }
   }
 }
