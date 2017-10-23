@@ -1,0 +1,10 @@
+/* Pokemon Listing */
+.pokemons-listing .content {
+  display: flex;
+  justify-content: space-between; }
+  .pokemons-listing .content .row {
+    display: flex;
+    align-self: flex-end; }
+    .pokemons-listing .content .row .listing-element {
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+      margin: 0 0 30px 0; }
