@@ -6,6 +6,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
+import { D3Service } from 'd3-ng2-service';
 
 import { AppComponent } from './app.component';
 import { pokemonsReducer } from './shared';
@@ -13,6 +14,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PokemonsComponent } from './pokemons/pokemons.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { MypageComponent } from './mypage/mypage.component';
+import { StackedChartComponent } from './stackedchart/stackedchart.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -22,7 +24,14 @@ const appRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, PokemonsComponent, HomepageComponent, PokemonComponent, MypageComponent],
+  declarations: [
+    AppComponent,
+    PokemonsComponent,
+    HomepageComponent,
+    PokemonComponent,
+    MypageComponent,
+    StackedChartComponent
+  ],
   imports: [
     BrowserModule,
     HttpModule,
@@ -38,7 +47,7 @@ const appRoutes: Routes = [
       { enableTracing: true } // <-- debugging purposes only
     )
   ],
-  providers: [],
+  providers: [D3Service],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

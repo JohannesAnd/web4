@@ -1,4 +1,5 @@
 export class Pokemon {
+  _id: string;
   number: number;
   name: string;
   primaryType: string;
@@ -9,6 +10,7 @@ export class Pokemon {
   specialAttack: number;
   specialDefence: number;
   speed: number;
-  generation: string;
-  legendary: boolean;
+  color_1: string;
+  color_2: string;
+  color_f: string;
 }
