@@ -1,25 +1,15 @@
 <div class="wrapper pokemons-listing">
-  <table class="table">
-    <tr class="header">
-      <th>Number</th>
-      <th>Name</th>
-      <th>Primary Type</th>
-      <th>Secondary Type</th>
-      <th>Health</th>
-      <th>Attack</th>
-      <th>Defence</th>
-      <th>Special Attack</th>
-      <th>Special Defence</th>
-      <th>Speed</th>
-    </tr>
-  </table>
 
   <div class="content col-sm-12 col-md-12 col-lg-12">
-    <div class="search-area col-sm-12 col-md-3 col-ld-3">
+    <div class="search-area">
     </div>
-    <div class="pokemon-results col-sm-12 col-md-9 col-lg-9">
+    <div class="pokemon-results
+    col-xs-12
+    col-sm-12
+    col-md-9
+    col-lg-9 ">
       <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-4 hvr-bounce-in"
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 hvr-bounce-in"
           *ngFor="let pokemon of pokemons$ | async">
           <div class="listing-element" [ngStyle]="{'background': 'radial-gradient(circle,' + pokemon.color_1 + ', ' + shadeColor2(pokemon.color_1, -0.5) + ')'}">
             <div class="number">
