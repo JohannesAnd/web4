@@ -21,7 +21,7 @@ module.exports = opts => {
     search: (req, res, next) => {
       Pokemon.find(
         {
-          name: {$regex: new RegExp('^'+req.body.name, "i")},
+          name: {$regex: new RegExp('.*'+req.body.name+'.*', "i")},
           number: {$gt: req.body.numberFrom, $lt: req.body.numberTo},
           $or: [{type_1: {$in: req.body.typeList}}, {type_2: {$in: req.body.typeList}}]
         })
