@@ -73,6 +73,6 @@ export class PokemonsComponent implements OnInit {
 
   search(context){
     console.log(context);
-      this.pokemonsService.search(context['name']);
+    this.pokemonsService.search();
   }
 }

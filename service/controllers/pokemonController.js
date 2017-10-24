@@ -19,7 +19,7 @@ module.exports = opts => {
         .catch(err => next(err)),
 
     search: (req, res, next) =>
-      Pokemon.find({number: {$lt: '10'}})
+      Pokemon.find({number: {$lt: '25'}})
         .then(pokemons => res.json(pokemons))
         .catch(err => next(err)),
   };

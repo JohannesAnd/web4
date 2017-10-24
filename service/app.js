@@ -49,5 +49,6 @@ app.use(cookieParser());
 app.use('/', authRouter());
 app.use('/users', userRouter());
 app.use('/pokemons', pokemonRouter());
+app.use('/pokemons/search', pokemonRouter());
 
 module.exports = app;
