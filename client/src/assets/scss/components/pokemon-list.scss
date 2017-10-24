@@ -1,5 +1,5 @@
 /* Variables */
-$hoverScale: 1.05;
+$hoverScale: 1.03;
 
 /* Pokemon Listing */
 
@@ -13,7 +13,9 @@ $hoverScale: 1.05;
 
 
   .content {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
 
     .pokemon-results {
       display: inline-block;
@@ -77,10 +79,11 @@ $hoverScale: 1.05;
           }
           .img-container {
             position: absolute;
+            left: 15%;
             bottom: 30px;
 
             .img {
-              max-height: 120px;
+              max-height: 125px;
             }
           }
 
@@ -96,19 +99,50 @@ $hoverScale: 1.05;
             top: 10%;
             transform: rotate(7deg);
           }
+
+          .type-container{
+            width: 25%;
+            position: absolute;
+            bottom: 20%;
+            right: 5%;
+            text-align: right;
+
+
+            .type1-img{
+              width: 40%;
+              height: auto;
+              display: inline-block;
+            }
+
+            .type2-img{
+              width: 40%;
+              height: auto;
+              display: inline-block;
+            }
+          }
         }
+
+        /* Extra large screens */
+        @media screen and (min-width: 1250px) {
+          .col-xl-4 {
+            width: 33%;
+          }
+        }
+
       }
     }
 
     .search-area {
       display: inline-block;
+      position: fixed;
+      float: left;
       width: 20%;
       margin: 0 2.5%;
       border-radius: 5px;
       height: 90vh;
       background-color: #f8f8f8;
       box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
-
+      left: 0;
     }
   }
 }

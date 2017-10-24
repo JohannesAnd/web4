@@ -34,13 +34,28 @@ export class PokemonsComponent implements OnInit {
       return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    getImageSource(unPaddedNumber){
-    let paddedNumber = "001";
+    getPaddedNumber(unPaddedNumber){
+        let paddedNumber = "001";
         if (unPaddedNumber <= 999) {
-          paddedNumber = ("000" + unPaddedNumber).slice(-3);
+            paddedNumber = ("000" + unPaddedNumber).slice(-3);
         } else {
-          paddedNumber = unPaddedNumber;
+            paddedNumber = unPaddedNumber;
         }
-        return 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + paddedNumber + '.png';
+        return paddedNumber;
+    }
+
+    getImageSource(unPaddedNumber){
+      let paddedNumber = this.getPaddedNumber(unPaddedNumber);
+      return 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/' + paddedNumber + '.png';
+    }
+
+    verifyType(type){
+      let types = ["normal", "fire", "fighting", "water", "flying", "grass", "poison", "electric", "ground", "psychic",
+      "rock", "ice", "bug", "dragon", "ghost", "dark", "steel", "fairy"];
+      if (types.indexOf(type) > -1) {
+          return true;
+      } else {
+        return false;
+      }
     }
 }

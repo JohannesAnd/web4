@@ -11,15 +11,23 @@
       <div class="row">
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 hvr-bounce-in"
           *ngFor="let pokemon of pokemons$ | async">
-          <div class="listing-element" [ngStyle]="{'background': 'radial-gradient(circle,' + pokemon.color_1 + ', ' + shadeColor2(pokemon.color_1, -0.5) + ')'}">
+          <div class="listing-element"
+               [ngStyle]="{'background':
+               'radial-gradient(circle,' + pokemon.color_1 + ', ' + shadeColor2(pokemon.color_1, -0.5) + ')'}">
             <div class="number">
-              {{pokemon.number}}
+              # {{getPaddedNumber(pokemon.number)}}
             </div>
             <div class="img-container">
               <img class="img" alt="{{pokemon.name}}" src="{{getImageSource(pokemon.number)}}">
             </div>
             <div class="name">
               {{capitalizeFirstLetter(pokemon.name)}}
+            </div>
+            <div class="type-container">
+              <img *ngIf="verifyType(pokemon.type_1)" class="type1-img" alt="type one icon"
+                   src="../../assets/images/pokemon_types/{{pokemon.type_1}}.png">
+              <img *ngIf="verifyType(pokemon.type_2)" class="type2-img" alt="type two icon"
+                   src="../../assets/images/pokemon_types/{{pokemon.type_2}}.png">
             </div>
           </div>
         </div>
