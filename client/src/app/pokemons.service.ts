@@ -21,4 +21,5 @@ export class PokemonsService {
       .map(payload => new AddPokemons(payload))
       .subscribe(action => this.store.dispatch(action));
   }
+
 }

@@ -3,7 +3,7 @@ module.exports = opts => {
 
   return {
     getAll: (req, res, next) =>
-      Pokemon.find({number: {$lt: 25}})
+      Pokemon.find({ number: { $lt: 25 } })
         .then(pokemons => res.json(pokemons))
         .catch(err => next(err)),
 
