@@ -125,4 +125,8 @@ export class PokemonsComponent implements OnInit {
     console.log(context);
     this.pokemonsService.search(context);
   }
+
+  expandSearch(area){
+      area.classList.toggle('expanded');
+  }
 }
