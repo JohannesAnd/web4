@@ -29,6 +29,7 @@ export class PokemonsService {
             'name': parameters['name'],
             'numberFrom': parameters['numberFrom'],
             'numberTo': parameters['numberTo'],
+            'typeList': parameters['typeList']
           })
           .map((res: Response) => res.json())
           .map(payload => new AddPokemons(payload))

@@ -10,16 +10,20 @@ import { Pokemon } from '../shared/pokemon.model';
   selector: 'app-pokemons',
   templateUrl: './pokemons.component.html',
   providers: [PokemonsService],
-  styleUrls: ['./pokemons.component.css']
+  styleUrls: ['./pokemons.component.css'],
 })
+
 export class PokemonsComponent implements OnInit {
   @ViewChild('getPokemons') getPokemons;
-
   pokemons$: Observable<Pokemon[]>;
   pokemonSubset$: Observable<Pokemon[]>;
 
   // Displaying n pokemons at a time
   n = 25;
+
+  // List of types in current filter
+  typeFilter = ['grass', 'bug', 'dark', 'dragon', 'electric', 'fairy', 'fighting', 'fire', 'flying', 'ghost', 'ground',
+      'ice', 'normal', 'poison', 'psychic', 'steel', 'water'];
 
   constructor(private pokemonsService: PokemonsService) {}
 
@@ -68,6 +72,23 @@ export class PokemonsComponent implements OnInit {
     } else {
       return false;
     }
+  }
+
+  toggleTypeButton(type, btn){
+    btn.classList.toggle("disabled");
+    if (btn.classList.contains("disabled")){
+        for (let i=this.typeFilter.length-1; i>=0; i--) {
+            if (this.typeFilter[i] === type) {
+                this.typeFilter.splice(i, 1);
+                break;
+            }
+        }
+    } else {
+      if (this.typeFilter.indexOf(type) < 0){
+        this.typeFilter.push(type)
+      }
+    }
+    console.log(this.typeFilter)
   }
 
 

@@ -23,11 +23,30 @@
         <label for="query-name" class="text-label">
           Types
         </label>
+        <button #grassTypeButton class="btn typeButton" data-toggle="tooltip" title="Grass" (click)="toggleTypeButton('grass', grassTypeButton)"><img src="../../assets/images/pokemon_types/grass.png"> </button>
+        <button #bugTypeButton class="btn typeButton" data-toggle="tooltip" title="Bug" (click)="toggleTypeButton('bug', bugTypeButton)"><img src="../../assets/images/pokemon_types/bug.png"> </button>
+        <button #darkTypeButton class="btn typeButton" data-toggle="tooltip" title="Dark" (click)="toggleTypeButton('dark', darkTypeButton)"><img src="../../assets/images/pokemon_types/dark.png"> </button>
+        <button #dragonTypeButton class="btn typeButton" data-toggle="tooltip" title="Dragon" (click)="toggleTypeButton('dragon', dragonTypeButton)"><img src="../../assets/images/pokemon_types/dragon.png"> </button>
+        <button #electricTypeButton class="btn typeButton" data-toggle="tooltip" title="Electric" (click)="toggleTypeButton('electric', electricTypeButton)"><img src="../../assets/images/pokemon_types/electric.png"> </button>
+        <button #fairyTypeButton class="btn typeButton" data-toggle="tooltip" title="Fairy" (click)="toggleTypeButton('fairy', fairyTypeButton)"><img src="../../assets/images/pokemon_types/fairy.png"> </button>
+        <button #fightingTypeButton class="btn typeButton" data-toggle="tooltip" title="Fighting" (click)="toggleTypeButton('fighting', fightingTypeButton)"><img src="../../assets/images/pokemon_types/fighting.png"> </button>
+        <button #fireTypeButton class="btn typeButton" data-toggle="tooltip" title="Fire" (click)="toggleTypeButton('fire', fireTypeButton)"><img src="../../assets/images/pokemon_types/fire.png"> </button>
+        <button #flyingTypeButton class="btn typeButton" data-toggle="tooltip" title="Flying" (click)="toggleTypeButton('flying', flyingTypeButton)"><img src="../../assets/images/pokemon_types/flying.png"> </button>
+        <button #ghostTypeButton class="btn typeButton" data-toggle="tooltip" title="Ghost" (click)="toggleTypeButton('ghost', ghostTypeButton)"><img src="../../assets/images/pokemon_types/ghost.png"> </button>
+        <button #groundTypeButton class="btn typeButton" data-toggle="tooltip" title="Ground" (click)="toggleTypeButton('ground', groundTypeButton)"><img src="../../assets/images/pokemon_types/ground.png"> </button>
+        <button #iceTypeButton class="btn typeButton" data-toggle="tooltip" title="Ice" (click)="toggleTypeButton('ice', iceTypeButton)"><img src="../../assets/images/pokemon_types/ice.png"> </button>
+        <button #normalTypeButton class="btn typeButton" data-toggle="tooltip" title="Normal" (click)="toggleTypeButton('normal', normalTypeButton)"><img src="../../assets/images/pokemon_types/normal.png"> </button>
+        <button #poisonTypeButton class="btn typeButton" data-toggle="tooltip" title="Poison" (click)="toggleTypeButton('poison', poisonTypeButton)"><img src="../../assets/images/pokemon_types/poison.png"> </button>
+        <button #psychicTypeButton class="btn typeButton" data-toggle="tooltip" title="Psychic" (click)="toggleTypeButton('psychic', psychicTypeButton)"><img src="../../assets/images/pokemon_types/psychic.png"> </button>
+        <button #steelTypeButton class="btn typeButton" data-toggle="tooltip" title="Steel" (click)="toggleTypeButton('steel', steelTypeButton)"><img src="../../assets/images/pokemon_types/steel.png"> </button>
+        <button #waterTypeButton class="btn typeButton" data-toggle="tooltip" title="Water" (click)="toggleTypeButton('water', waterTypeButton)"><img src="../../assets/images/pokemon_types/water.png"> </button>
+
       </div>
       <button class="btn btn-default submit-btn" (click)="search({
       name: nameField.value,
       numberFrom: fromNumberField.value,
-      numberTo: toNumberField.value
+      numberTo: toNumberField.value,
+      typeList: typeFilter
       })">
         Search <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
       </button>

@@ -149,6 +149,8 @@ $hoverScale: 1.03;
               right: 10%;
               top: 10%;
               transform: rotate(7deg);
+              max-height: 100px;
+              max-width: 200px;
             }
 
             .type-container {
@@ -196,6 +198,7 @@ $hoverScale: 1.03;
       font-family: 'Archivo Black', sans-serif;
       color: darkgray;
       padding: 0 15px;
+      overflow: hidden;
 
       @media screen and (max-width: 991px) {
         width: 100%;
@@ -247,6 +250,22 @@ $hoverScale: 1.03;
         .number-input {
           display: inline;
           width: calc(50% - 3px);
+        }
+
+        .typeButton{
+          width: calc(18% - 5px);
+          margin: 3px 2px;
+          padding: 3px;
+
+          &.disabled{
+            filter: grayscale(100%);
+            cursor: pointer!important;
+          }
+
+          img{
+            width: 100%;
+            height: auto;
+          }
         }
       }
       .submit-btn{
