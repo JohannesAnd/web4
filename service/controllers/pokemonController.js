@@ -1,10 +1,10 @@
 module.exports = opts => {
   const { Pokemon } = opts;
 
-
   return {
     getAll: (req, res, next) =>
-      Pokemon.find({number: {$lt: '75',$gt: '50'}})
+      Pokemon.find({ number: { $lt: '25' } })
+
         .then(pokemons => res.json(pokemons))
         .catch(err => next(err)),
 

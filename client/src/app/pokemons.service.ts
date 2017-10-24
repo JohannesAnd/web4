@@ -22,7 +22,8 @@ export class PokemonsService {
       .subscribe(action => this.store.dispatch(action));
   }
 
-  search(parameters) {
+
+  search(parameters){
       return this.http
           .post('http://localhost:8085/pokemons/search', {
             'name': parameters['name']
