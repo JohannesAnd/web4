@@ -1,102 +1,248 @@
 /* Variables */
-$hoverScale: 1.05;
+$hoverScale: 1.03;
 
 /* Pokemon Listing */
 
 .pokemons-listing {
+  padding: 5% 0 0 0;
+
 
   * {
     transition: .5s all;
   }
 
+
   .content {
-    display: block;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    height: 90vh;
 
-    .row {
+    @media screen and (max-width: 991px) {
+      display: block;
+    }
 
-      .hvr-bounce-in {
+    .shader-wrapper {
+      display: inline-block;
+      overflow: hidden;
 
-        display: inline-block;
-        vertical-align: middle;
-        -webkit-transform: perspective(1px) translateZ(0);
-        transform: perspective(1px) translateZ(0);
-        box-shadow: 0 0 1px transparent;
-        -webkit-transition-duration: 0.5s;
-        transition-duration: 0.5s;
-
-        &:hover{
-          cursor: pointer;
-          z-index: 99;
-          -webkit-transform: scale($hoverScale);
-          transform: scale($hoverScale);
-          -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-          transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-        }
-
-        &:active{
-          cursor: pointer;
-          z-index: 99;
-          -webkit-transform: scale($hoverScale);
-          transform: scale($hoverScale);
-          -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-          transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-        }
-
-        &:focus{
-          cursor: pointer;
-          z-index: 99;
-          -webkit-transform: scale($hoverScale);
-          transform: scale($hoverScale);
-          -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-          transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
-        }
+      &:after {
+        content  : "";
+        position : absolute;
+        z-index  : 1001;
+        bottom   : 0;
+        left     : 0;
+        pointer-events   : none;
+        background-image : linear-gradient(to bottom,
+                rgba(255,255,255, 0),
+                rgba(255,255,255, 1) 60%);
+        width    : 100%;
+        height   : 2em;
       }
 
-      .listing-element {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.58);
-        margin: 0 0 30px 0;
-        height: 150px;
-        border-radius: 5px;
-        padding: 2% 5%;
+      &:before {
+        content  : "";
+        position : absolute;
+        z-index  : 1001;
+        top   : 0;
+        left     : 0;
+        pointer-events   : none;
+        background-image : linear-gradient(to bottom,
+                rgba(255,255,255, 0),
+                rgba(255,255,255, 1) 60%);
+        width    : 100%;
+        height   : 2em;
+        transform: rotate(180deg);
+      }
 
+      @media screen and (max-width: 991px) {
+        height: 95%;
+        margin: 1% 0 0 0;
+        padding: 0;
+        width: 100%;
+      }
 
-        .number {
-          color: #f8f8f8;
-          font-family: 'Raleway', sans-serif;
-          font-size: 18px;
-          font-weight: 600;
-          line-height: 32px;
-          margin: 0 0 24px;
-          text-shadow: 2px 2px rgba(55, 55, 55, 0.5);
-          display: inline;
-        }
-        .img-container{
-          position: absolute;
-          bottom: 30px;
+      .pokemon-results {
+        padding: 20px 0;
+        display: inline-block;
+        height: 100%;
+        overflow-y: scroll;
 
-          .img{
-            max-height: 120px;
+        .row {
+          margin: 0;
+
+          .hvr-bounce-in {
+
+            display: inline-block;
+            vertical-align: middle;
+            -webkit-transform: perspective(1px) translateZ(0);
+            transform: perspective(1px) translateZ(0);
+            box-shadow: 0 0 1px transparent;
+            -webkit-transition-duration: 0.5s;
+            transition-duration: 0.5s;
+
+            &:hover {
+              cursor: pointer;
+              z-index: 99;
+              -webkit-transform: scale($hoverScale);
+              transform: scale($hoverScale);
+              -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+              transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+            }
+
+            &:active {
+              cursor: pointer;
+              z-index: 99;
+              -webkit-transform: scale($hoverScale);
+              transform: scale($hoverScale);
+              -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+              transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+            }
+
+            &:focus {
+              cursor: pointer;
+              z-index: 99;
+              -webkit-transform: scale($hoverScale);
+              transform: scale($hoverScale);
+              -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+              transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+            }
           }
-        }
 
-        .name{
-          display: inline-block;
-          font-family: 'Archivo Black', sans-serif;
-          color: #f8f8f8;
-          font-weight: 600;
-          font-size: 30px;
-          text-shadow: 2px 2px rgba(55, 55, 55, 0.5);
-          position: absolute;
-          right: 10%;
-          top: 10%;
-          transform: rotate(7deg);
+          .listing-element {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.58);
+            margin: 0 0 30px 0;
+            height: 150px;
+            border-radius: 5px;
+            padding: 2% 5%;
+
+            .number {
+              color: #f8f8f8;
+              font-family: 'Raleway', sans-serif;
+              font-size: 18px;
+              font-weight: 600;
+              line-height: 32px;
+              margin: 0 0 24px;
+              text-shadow: 2px 2px rgba(55, 55, 55, 0.5);
+              display: inline;
+            }
+            .img-container {
+              position: absolute;
+              left: 15%;
+              bottom: 30px;
+
+              .img {
+                max-height: 125px;
+              }
+            }
+
+            .name {
+              display: inline-block;
+              font-family: 'Archivo Black', sans-serif;
+              color: #f8f8f8;
+              font-weight: 600;
+              font-size: 30px;
+              text-shadow: 2px 2px rgba(55, 55, 55, 0.5);
+              position: absolute;
+              right: 10%;
+              top: 10%;
+              transform: rotate(7deg);
+            }
+
+            .type-container {
+              width: 25%;
+              position: absolute;
+              bottom: 20%;
+              right: 5%;
+              text-align: right;
+
+              .type1-img {
+                width: 40%;
+                height: auto;
+                display: inline-block;
+              }
+
+              .type2-img {
+                width: 40%;
+                height: auto;
+                display: inline-block;
+              }
+            }
+          }
+
+          /* Extra large screens */
+          @media screen and (min-width: 1250px) {
+            .col-xl-4 {
+              width: 33%;
+            }
+          }
+
         }
       }
     }
 
     .search-area {
-      min-width: 5px;
-      min-height: 5px;
+      display: inline-block;
+      position: fixed;
+      float: left;
+      width: 20%;
+      margin: 20px 2.5%;
+      border-radius: 5px;
+      background-color: darkgray;
+      box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.3);
+      left: 0;
+      font-family: 'Archivo Black', sans-serif;
+      color: darkgray;
+      padding: 0 15px;
+
+      @media screen and (max-width: 991px) {
+        width: 100%;
+        height: 9%;
+        display: block;
+        position: relative;
+        margin: 0;
+        cursor: pointer;
+
+      }
+
+      .search-header{
+        color: white;
+        text-shadow: 2px 2px rgba(55, 55, 55, 0.5);
+        text-align: center;
+        position: relative;
+        margin-bottom: 30px;
+
+        @media screen and (max-width: 991px) {
+          text-align: left;
+        }
+
+        .dropdown-triangle{
+          position: absolute; right: 0;
+          opacity: 1;
+
+          @media screen and (min-width: 991px) {
+            text-align: left;
+            opacity: 0;
+          }
+        }
+
+      }
+
+      .text-label{
+        display: block;
+        color: #f8f8f8;
+        font-size: 24px;
+        font-weight: 100;
+      }
+
+      .text-input{
+
+      }
+
+      .submit-btn{
+        width: 100%;
+        margin:20px 0;
+      }
     }
   }
 }
