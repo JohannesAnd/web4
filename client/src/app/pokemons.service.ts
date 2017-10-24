@@ -26,7 +26,9 @@ export class PokemonsService {
   search(parameters){
       return this.http
           .post('http://localhost:8085/pokemons/search', {
-            'name': parameters['name']
+            'name': parameters['name'],
+            'numberFrom': parameters['numberFrom'],
+            'numberTo': parameters['numberTo'],
           })
           .map((res: Response) => res.json())
           .map(payload => new AddPokemons(payload))

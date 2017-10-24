@@ -230,21 +230,30 @@ $hoverScale: 1.03;
 
       }
 
-      .text-label{
-        display: block;
-        color: #f8f8f8;
-        font-size: 24px;
-        font-weight: 100;
+      .form-group {
+        position: relative;
+
+        .text-label {
+          display: block;
+          color: #f8f8f8;
+          font-size: 24px;
+          font-weight: 100;
+        }
+
+        .text-input {
+
+        }
+
+        .number-input {
+          display: inline;
+          width: calc(50% - 3px);
+        }
       }
-
-      .text-input{
-
-      }
-
       .submit-btn{
         width: 100%;
         margin:20px 0 ;
       }
+
     }
   }
 }

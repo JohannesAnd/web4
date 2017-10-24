@@ -19,7 +19,11 @@ module.exports = opts => {
         .catch(err => next(err)),
 
     search: (req, res, next) => {
-      Pokemon.find({name: {$regex: new RegExp('^'+req.body.name, "i")}})
+      Pokemon.find(
+        {
+          name: {$regex: new RegExp('^'+req.body.name, "i")},
+          number: {$gt: req.body.numberFrom, $lt: req.body.numberTo}
+        })
         .then(pokemons => res.json(pokemons))
         .catch(err => next(err))
     }

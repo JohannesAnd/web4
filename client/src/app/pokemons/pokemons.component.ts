@@ -72,7 +72,13 @@ export class PokemonsComponent implements OnInit {
 
 
   search(context){
-    console.log(context['name']);
+    if(context['numberFrom'] < 0 || context['numberFrom'] > 810 || context['numberFrom'] == '') {
+        context['numberFrom'] = 0;
+    }
+    if(context['numberTo'] < 0 || context['numberTo'] > 810 || context['numberTo'] == '') {
+        context['numberTo'] = 810;
+    }
+    console.log(context);
     this.pokemonsService.search(context);
   }
 }

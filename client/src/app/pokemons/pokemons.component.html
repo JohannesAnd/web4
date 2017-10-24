@@ -10,11 +10,24 @@
         <label for="query-name" class="text-label">
         Name
         </label>
-        <input #nameField id="query-name" type="text" class="text-input form-control">
+        <input #nameField id="query-name" type="text" class="text-input form-control" placeholder="Pikachu">
       </div>
-
+      <div class="name-group form-group">
+        <label class="text-label">
+          Number
+        </label>
+        <input #fromNumberField id="query-from-number" type="number" class="number-input form-control" placeholder="From">
+        <input #toNumberField id="query-to-number" type="number" class="number-input form-control" placeholder="To">
+      </div>
+      <div class="name-group form-group">
+        <label for="query-name" class="text-label">
+          Types
+        </label>
+      </div>
       <button class="btn btn-default submit-btn" (click)="search({
-      name: nameField.value
+      name: nameField.value,
+      numberFrom: fromNumberField.value,
+      numberTo: toNumberField.value
       })">
         Search <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
       </button>
