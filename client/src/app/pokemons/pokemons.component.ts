@@ -5,6 +5,7 @@ import { PokemonsService } from '../pokemons.service';
 
 import { Pokemon } from '../shared/pokemon.model';
 
+
 @Component({
   selector: 'app-pokemons',
   templateUrl: './pokemons.component.html',

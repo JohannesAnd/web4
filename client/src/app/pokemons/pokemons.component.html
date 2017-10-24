@@ -20,7 +20,8 @@
     <div class="pokemon-results col-sm-12 col-md-9 col-lg-9">
       <div class="row">
         <div class="col-sm-6 col-md-6 col-lg-4 hvr-bounce-in"
-          *ngFor="let pokemon of pokemons$ | async">
+          *ngFor="let pokemon of pokemons$ | async"
+          [routerLink]="['/pokemons', pokemon._id]">
           <div class="listing-element" [ngStyle]="{'background': 'radial-gradient(circle,' + pokemon.color_1 + ', ' + shadeColor2(pokemon.color_1, -0.5) + ')'}">
             <div class="number">
               {{pokemon.number}}
