@@ -24,12 +24,17 @@ export class PokemonsService {
 
 
   search(parameters){
+      let sortQuery = '{' + parameters['sortType'] + ': ' + parameters['sortMethod'] + '}';
+      console.log(sortQuery);
       return this.http
           .post('http://localhost:8085/pokemons/search', {
             'name': parameters['name'],
             'numberFrom': parameters['numberFrom'],
             'numberTo': parameters['numberTo'],
-            'typeList': parameters['typeList']
+            'typeList': parameters['typeList'],
+            'sortQuery': sortQuery,
+            'sortType': parameters['sortType'],
+            'sortMethod': parameters['sortMethod']
           })
           .map((res: Response) => res.json())
           .map(payload => new AddPokemons(payload))

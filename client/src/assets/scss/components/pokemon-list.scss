@@ -278,9 +278,68 @@ $hoverScale: 1.03;
           }
         }
       }
+
       .submit-btn{
         width: 100%;
         margin:20px 0 ;
+        position: relative;
+
+        span{
+          position: absolute;
+          right: 5%;
+          top: 30%;
+        }
+      }
+
+      .number-sort{
+        width: 100%;
+        margin:20px 0 5px;
+        position: relative;
+
+        span{
+          position: absolute;
+          right: 5%;
+          top: 30%;
+          opacity: 1;
+        }
+
+        &.asc{
+          span{
+            transform: rotate(180deg);
+          }
+        }
+
+        &.inactive{
+          span{
+            opacity: 0;
+          }
+        }
+      }
+
+      .name-sort{
+        width: 100%;
+        margin:5px 0 20px;
+        position: relative;
+
+        span{
+          position: absolute;
+          right: 5%;
+          top: 30%;
+          transform: rotate(180deg);
+          opacity: 1;
+        }
+
+        &.asc{
+          span{
+            transform: rotate(0deg);
+          }
+        }
+
+        &.inactive{
+          span{
+            opacity: 0;
+          }
+        }
       }
 
     }

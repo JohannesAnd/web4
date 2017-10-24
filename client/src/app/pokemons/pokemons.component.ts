@@ -21,6 +21,11 @@ export class PokemonsComponent implements OnInit {
   // Displaying n pokemons at a time
   n = 25;
 
+  // Sort Method
+  sortType: string;
+  // 1 is asc, -1 is desc
+  sortMethod: number;
+
   // List of types in current filter
   typeFilter = ['grass', 'bug', 'dark', 'dragon', 'electric', 'fairy', 'fighting', 'fire', 'flying', 'ghost', 'ground',
       'ice', 'normal', 'poison', 'psychic', 'steel', 'water'];
@@ -38,6 +43,9 @@ export class PokemonsComponent implements OnInit {
       console.log(this.pokemons$[i]);
       i++;
     }
+    // init sort parameters
+    this.sortType = 'number';
+    this.sortMethod = 1;
   }
 
   shadeColor2(color, percent) {
@@ -57,6 +65,7 @@ export class PokemonsComponent implements OnInit {
           paddedNumber = unPaddedNumber;
       }
       return paddedNumber;
+
   }
 
   getImageSource(unPaddedNumber){
@@ -88,9 +97,21 @@ export class PokemonsComponent implements OnInit {
         this.typeFilter.push(type)
       }
     }
-    console.log(this.typeFilter)
   }
 
+  setSort(type, btn, inactiveBtn){
+      this.sortType = type;
+      // Set other btn inactive
+      inactiveBtn.classList.add('inactive');
+      btn.classList.remove('inactive');
+      if (btn.classList.contains('asc')){
+          this.sortMethod = -1;
+          btn.classList.toggle('asc');
+      } else {
+          this.sortMethod = 1;
+          btn.classList.toggle('asc');
+      }
+  }
 
   search(context){
     if(context['numberFrom'] < 0 || context['numberFrom'] > 810 || context['numberFrom'] == '') {
@@ -99,6 +120,8 @@ export class PokemonsComponent implements OnInit {
     if(context['numberTo'] < 0 || context['numberTo'] > 810 || context['numberTo'] == '') {
         context['numberTo'] = 810;
     }
+    context['sortType'] = this.sortType;
+    context['sortMethod'] = this.sortMethod;
     console.log(context);
     this.pokemonsService.search(context);
   }

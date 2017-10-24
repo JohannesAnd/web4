@@ -48,7 +48,13 @@
       numberTo: toNumberField.value,
       typeList: typeFilter
       })">
-        Search <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
+        Search <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </button>
+      <button #numberSortBtn class="btn btn-default number-sort asc" (click)="setSort('number', numberSortBtn, nameSortBtn)">
+        Order By Number <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+      </button>
+      <button #nameSortBtn class="btn btn-default name-sort asc inactive" (click)="setSort('name', nameSortBtn, numberSortBtn)">
+        Order By Name <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
       </button>
     </div>
     <div class="shader-wrapper col-xs-12
