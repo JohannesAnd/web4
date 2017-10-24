@@ -14,11 +14,19 @@ export class PokemonsService {
 
   constructor(private http: Http, private store: Store<AppStore>) {}
 
-  getPokemons() {
+  getAllPokemons() {
     return this.http
       .get('http://localhost:8085/pokemons')
       .map((res: Response) => res.json())
       .map(payload => new AddPokemons(payload))
       .subscribe(action => this.store.dispatch(action));
+  }
+
+  search(name){
+      return this.http
+          .get('http://localhost:8085/pokemons/')
+          .map((res: Response) => res.json())
+          .map(payload => new AddPokemons(payload))
+          .subscribe(action => this.store.dispatch(action));
   }
 }

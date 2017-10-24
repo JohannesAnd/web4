@@ -2,37 +2,54 @@
 
   <div class="content col-sm-12 col-md-12 col-lg-12">
     <div class="search-area">
+      <h1 class="search-header">
+        Explore
+        <span class="glyphicon glyphicon-triangle-left dropdown-triangle" aria-hidden="true"></span>
+      </h1>
+      <div class="name-group form-group">
+        <label for="query-name" class="text-label">
+        Name
+        </label>
+        <input #nameField id="query-name" type="text" class="text-input form-control">
+      </div>
+
+      <button class="btn btn-default submit-btn" (click)="search({
+      name: nameField.value
+      })">
+        Search <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"></span>
+      </button>
     </div>
-    <div class="pokemon-results
-    col-xs-12
-    col-sm-12
-    col-md-9
-    col-lg-9 ">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 hvr-bounce-in"
-          *ngFor="let pokemon of pokemons$ | async">
-          <div class="listing-element"
-               [ngStyle]="{'background':
-               'radial-gradient(circle,' + pokemon.color_1 + ', ' + shadeColor2(pokemon.color_1, -0.5) + ')'}"
-               [routerLink]="['/pokemons', pokemon._id]">
-            <div class="number">
-              # {{getPaddedNumber(pokemon.number)}}
-            </div>
-            <div class="img-container">
-              <img class="img" alt="{{pokemon.name}}" src="{{getImageSource(pokemon.number)}}">
-            </div>
-            <div class="name">
-              {{capitalizeFirstLetter(pokemon.name)}}
-            </div>
-            <div class="type-container">
-              <img *ngIf="verifyType(pokemon.type_1)" class="type1-img" alt="type one icon"
-                   src="../../assets/images/pokemon_types/{{pokemon.type_1}}.png">
-              <img *ngIf="verifyType(pokemon.type_2)" class="type2-img" alt="type two icon"
-                   src="../../assets/images/pokemon_types/{{pokemon.type_2}}.png">
+    <div class="shader-wrapper col-xs-12
+      col-sm-12
+      col-md-9
+      col-lg-9">
+      <div class="pokemon-results">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-4 hvr-bounce-in"
+            *ngFor="let pokemon of pokemons$ | async">
+            <div class="listing-element"
+                 [ngStyle]="{'background':
+                 'radial-gradient(circle,' + pokemon.color_1 + ', ' + shadeColor2(pokemon.color_1, -0.5) + ')'}"
+                 [routerLink]="['/pokemons', pokemon._id]">
+              <div class="number">
+                # {{getPaddedNumber(pokemon.number)}}
+              </div>
+              <div class="img-container">
+                <img class="img" alt="{{pokemon.name}}" src="{{getImageSource(pokemon.number)}}">
+              </div>
+              <div class="name">
+                {{capitalizeFirstLetter(pokemon.name)}}
+              </div>
+              <div class="type-container">
+                <img *ngIf="verifyType(pokemon.type_1)" class="type1-img" alt="type one icon"
+                     src="../../assets/images/pokemon_types/{{pokemon.type_1}}.png">
+                <img *ngIf="verifyType(pokemon.type_2)" class="type2-img" alt="type two icon"
+                     src="../../assets/images/pokemon_types/{{pokemon.type_2}}.png">
+              </div>
             </div>
           </div>
-        </div>
-        </div>
+          </div>
+      </div>
     </div>
   </div>
 </div>
