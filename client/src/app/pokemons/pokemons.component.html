@@ -13,7 +13,8 @@
           *ngFor="let pokemon of pokemons$ | async">
           <div class="listing-element"
                [ngStyle]="{'background':
-               'radial-gradient(circle,' + pokemon.color_1 + ', ' + shadeColor2(pokemon.color_1, -0.5) + ')'}">
+               'radial-gradient(circle,' + pokemon.color_1 + ', ' + shadeColor2(pokemon.color_1, -0.5) + ')'}"
+               [routerLink]="['/pokemons', pokemon._id]">
             <div class="number">
               # {{getPaddedNumber(pokemon.number)}}
             </div>
