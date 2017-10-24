@@ -22,9 +22,11 @@ export class PokemonsService {
       .subscribe(action => this.store.dispatch(action));
   }
 
-  search() {
+  search(parameters) {
       return this.http
-          .get('http://localhost:8085/pokemons/search')
+          .post('http://localhost:8085/pokemons/search', {
+            'name': parameters['name']
+          })
           .map((res: Response) => res.json())
           .map(payload => new AddPokemons(payload))
           .subscribe(action => this.store.dispatch(action));

@@ -4,7 +4,7 @@ module.exports = opts => {
 
   return {
     getAll: (req, res, next) =>
-      Pokemon.find({number: {$lt: '25'}})
+      Pokemon.find({number: {$lt: '75',$gt: '50'}})
         .then(pokemons => res.json(pokemons))
         .catch(err => next(err)),
 
@@ -18,9 +18,10 @@ module.exports = opts => {
         .then(pokemons => res.json(pokemons))
         .catch(err => next(err)),
 
-    search: (req, res, next) =>
-      Pokemon.find({number: {$lt: '25'}})
+    search: (req, res, next) => {
+      Pokemon.find({name: {$regex: new RegExp('^'+req.body.name, "i")}})
         .then(pokemons => res.json(pokemons))
-        .catch(err => next(err)),
+        .catch(err => next(err))
+    }
   };
 };

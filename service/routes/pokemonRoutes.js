@@ -9,7 +9,7 @@ module.exports = () => {
   pRouter.get('/', pokemonController.getAll);
   pRouter.get('/:id', pokemonController.getOne);
   pRouter.get('/number/:number', pokemonController.getByNumber);
-  pRouter.get('/search', pokemonController.getAll);
+  pRouter.post('/search', pokemonController.search);
 
   return pRouter;
 };

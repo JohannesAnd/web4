@@ -26,6 +26,7 @@ $hoverScale: 1.03;
       display: inline-block;
       overflow: hidden;
 
+
       &:after {
         content  : "";
         position : absolute;
@@ -66,6 +67,7 @@ $hoverScale: 1.03;
         padding: 20px 0;
         display: inline-block;
         height: 100%;
+        width: 100%;
         overflow-y: scroll;
 
         .row {
@@ -241,7 +243,7 @@ $hoverScale: 1.03;
 
       .submit-btn{
         width: 100%;
-        margin:20px 0;
+        margin:20px 0 ;
       }
     }
   }
