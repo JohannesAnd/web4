@@ -1,41 +1,31 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, ElementRef, Input } from '@angular/core';
 import { D3Service, D3, Selection } from 'd3-ng2-service';
 import { Observable } from 'rxjs/Rx';
-
-import { PokemonsService } from '../pokemons.service';
 
 import { Pokemon } from '../shared/pokemon.model';
 
 @Component({
   selector: 'app-stacked-chart',
-  template: '<svg></svg>',
-  providers: [PokemonsService]
+  template: '<div><svg></svg></div>',
+  providers: []
 })
-export class StackedChartComponent implements OnInit {
-  private pokemons: Pokemon[];
+export class StackedChartComponent implements OnInit, OnChanges {
+  @Input() pokemons: Pokemon[];
 
   private d3: D3;
   private parentNativeElement: any;
   private d3Svg: Selection<SVGSVGElement, any, any, any>;
 
-  constructor(
-    private pokemonsService: PokemonsService,
-    element: ElementRef,
-    d3Service: D3Service
-  ) {
+  constructor(element: ElementRef, d3Service: D3Service) {
     this.d3 = d3Service.getD3();
     this.parentNativeElement = element.nativeElement;
   }
 
   ngOnInit(): void {
-    this.pokemonsService.pokemons$.subscribe(pokemons =>
-      this.setPokemons(pokemons)
-    );
     this.initializeChart();
   }
 
-  setPokemons(pokemons: Pokemon[]) {
-    this.pokemons = pokemons;
+  ngOnChanges(): void {
     this.initializeChart();
   }
 
@@ -58,7 +48,7 @@ export class StackedChartComponent implements OnInit {
     el.attr('width', width).attr('height', height);
 
     const data = this.pokemons || [];
-    console.log(data);
+
     const yScale = this.d3
       .scaleLinear()
       .range([0, height])
