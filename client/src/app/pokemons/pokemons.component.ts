@@ -9,7 +9,7 @@ import { Pokemon } from '../shared/pokemon.model';
   selector: 'app-pokemons',
   templateUrl: './pokemons.component.html',
   providers: [PokemonsService],
-  styleUrls: ['./pokemons.component.css']
+  styleUrls: ['./pokemons.component.scss']
 })
 export class PokemonsComponent implements OnInit {
   @ViewChild('getPokemons') getPokemons;
