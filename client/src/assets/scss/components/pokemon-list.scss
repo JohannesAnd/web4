@@ -8,11 +8,9 @@ $hoverScale: 1.03;
   height: 100vh;
   overflow: hidden;
 
-
   * {
-    transition: .5s all;
+    transition: 0.5s all;
   }
-
 
   .content {
     display: flex;
@@ -28,33 +26,36 @@ $hoverScale: 1.03;
       display: inline-block;
       overflow: hidden;
 
-
       &:after {
-        content  : "";
-        position : absolute;
-        z-index  : 1001;
-        bottom   : 0;
-        left     : 0;
-        pointer-events   : none;
-        background-image : linear-gradient(to bottom,
-                rgba(255,255,255, 0),
-                rgba(255,255,255, 1) 60%);
-        width    : 100%;
-        height   : 2em;
+        content: '';
+        position: absolute;
+        z-index: 1001;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 1) 60%
+        );
+        width: 100%;
+        height: 2em;
       }
 
       &:before {
-        content  : "";
-        position : absolute;
-        z-index  : 1001;
-        top   : 0;
-        left     : 0;
-        pointer-events   : none;
-        background-image : linear-gradient(to bottom,
-                rgba(255,255,255, 0),
-                rgba(255,255,255, 1) 60%);
-        width    : 100%;
-        height   : 2em;
+        content: '';
+        position: absolute;
+        z-index: 1001;
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0),
+          rgba(255, 255, 255, 1) 60%
+        );
+        width: 100%;
+        height: 2em;
         transform: rotate(180deg);
       }
 
@@ -76,7 +77,6 @@ $hoverScale: 1.03;
           margin: 0;
 
           .hvr-bounce-in {
-
             display: inline-block;
             vertical-align: middle;
             -webkit-transform: perspective(1px) translateZ(0);
@@ -90,7 +90,12 @@ $hoverScale: 1.03;
               z-index: 99;
               -webkit-transform: scale($hoverScale);
               transform: scale($hoverScale);
-              -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+              -webkit-transition-timing-function: cubic-bezier(
+                0.47,
+                2.02,
+                0.31,
+                -0.36
+              );
               transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
 
               .img-container {
@@ -108,7 +113,12 @@ $hoverScale: 1.03;
               z-index: 99;
               -webkit-transform: scale($hoverScale);
               transform: scale($hoverScale);
-              -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+              -webkit-transition-timing-function: cubic-bezier(
+                0.47,
+                2.02,
+                0.31,
+                -0.36
+              );
               transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
             }
 
@@ -117,7 +127,12 @@ $hoverScale: 1.03;
               z-index: 99;
               -webkit-transform: scale($hoverScale);
               transform: scale($hoverScale);
-              -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+              -webkit-transition-timing-function: cubic-bezier(
+                0.47,
+                2.02,
+                0.31,
+                -0.36
+              );
               transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
             }
           }
@@ -192,7 +207,6 @@ $hoverScale: 1.03;
               width: 33%;
             }
           }
-
         }
       }
     }
@@ -219,32 +233,31 @@ $hoverScale: 1.03;
         position: relative;
         margin: 0;
 
-        &.expanded{
+        &.expanded {
           max-height: 60vh;
-          .dropdown-triangle{
+          .dropdown-triangle {
             transform: rotate(-90deg);
           }
         }
 
-        .typeButton{
-          width: 40px!important;
+        .typeButton {
+          width: 40px !important;
           margin: 3px 2px;
           padding: 3px;
 
-          &.disabled{
+          &.disabled {
             filter: grayscale(100%);
-            cursor: pointer!important;
+            cursor: pointer !important;
           }
 
-          img{
+          img {
             width: 100%;
             height: auto;
           }
         }
-
       }
 
-      .search-header{
+      .search-header {
         color: white;
         text-shadow: 2px 2px rgba(55, 55, 55, 0.5);
         text-align: center;
@@ -255,8 +268,9 @@ $hoverScale: 1.03;
           text-align: left;
         }
 
-        .dropdown-triangle{
-          position: absolute; right: 0;
+        .dropdown-triangle {
+          position: absolute;
+          right: 0;
           opacity: 1;
           cursor: pointer;
 
@@ -265,7 +279,6 @@ $hoverScale: 1.03;
             opacity: 0;
           }
         }
-
       }
 
       .form-group {
@@ -279,7 +292,6 @@ $hoverScale: 1.03;
         }
 
         .text-input {
-
         }
 
         .number-input {
@@ -287,66 +299,66 @@ $hoverScale: 1.03;
           width: calc(50% - 3px);
         }
 
-        .typeButton{
+        .typeButton {
           width: calc(18% - 5px);
           margin: 3px 2px;
           padding: 3px;
 
-          &.disabled{
+          &.disabled {
             filter: grayscale(100%);
-            cursor: pointer!important;
+            cursor: pointer !important;
           }
 
-          img{
+          img {
             width: 100%;
             height: auto;
           }
         }
       }
 
-      .submit-btn{
+      .submit-btn {
         width: 100%;
-        margin:20px 0 ;
+        margin: 20px 0;
         position: relative;
 
-        span{
+        span {
           position: absolute;
           right: 5%;
           top: 30%;
         }
       }
 
-      .number-sort{
+      .number-sort {
         width: 100%;
-        margin:20px 0 5px;
+        margin: 20px 0 5px;
         position: relative;
 
-        span{
+        span {
           position: absolute;
           right: 5%;
           top: 30%;
           opacity: 1;
         }
 
-        &.asc{
-          span{
+        &.asc {
+          span {
             transform: rotate(180deg);
           }
         }
 
-        &.inactive{
-          span{
+        &.inactive {
+          span {
             opacity: 0;
           }
         }
       }
 
-      .name-sort{
+      .name-sort {
         width: 100%;
-        margin:5px 0 20px;
+        margin: 5px 0 20px;
         position: relative;
 
-        span{
+        span {
           position: absolute;
           right: 5%;
           top: 30%;
@@ -354,19 +366,18 @@ $hoverScale: 1.03;
           opacity: 1;
         }
 
-        &.asc{
-          span{
+        &.asc {
+          span {
             transform: rotate(0deg);
           }
         }
 
-        &.inactive{
-          span{
+        &.inactive {
+          span {
             opacity: 0;
           }
         }
       }
-
     }
   }
 }
