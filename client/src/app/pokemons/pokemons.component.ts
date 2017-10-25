@@ -13,18 +13,54 @@ import { Pokemon } from '../shared/pokemon.model';
 })
 export class PokemonsComponent implements OnInit {
   @ViewChild('getPokemons') getPokemons;
-
   pokemons$: Observable<Pokemon[]>;
   pokemonSubset$: Observable<Pokemon[]>;
 
   // Displaying n pokemons at a time
   n = 25;
 
+  // Sort Method
+  sortType: string;
+  // 1 is asc, -1 is desc
+  sortMethod: number;
+
+  // List of types in current filter
+  typeFilter = [
+    'grass',
+    'bug',
+    'dark',
+    'dragon',
+    'electric',
+    'fairy',
+    'fighting',
+    'fire',
+    'flying',
+    'ghost',
+    'ground',
+    'ice',
+    'normal',
+    'poison',
+    'psychic',
+    'steel',
+    'water'
+  ];
+
   constructor(private pokemonsService: PokemonsService) {}
 
   ngOnInit(): void {
     this.pokemons$ = this.pokemonsService.pokemons$;
     this.pokemonsService.getAllPokemons();
+
+    let i = 0;
+    console.log(this.pokemons$);
+
+    while (i < this.n) {
+      console.log(this.pokemons$[i]);
+      i++;
+    }
+    // init sort parameters
+    this.sortType = 'number';
+    this.sortMethod = 1;
   }
 
   shadeColor2(color, percent) {
@@ -97,8 +133,58 @@ export class PokemonsComponent implements OnInit {
     }
   }
 
+  toggleTypeButton(type, btn) {
+    btn.classList.toggle('disabled');
+    if (btn.classList.contains('disabled')) {
+      for (let i = this.typeFilter.length - 1; i >= 0; i--) {
+        if (this.typeFilter[i] === type) {
+          this.typeFilter.splice(i, 1);
+          break;
+        }
+      }
+    } else {
+      if (this.typeFilter.indexOf(type) < 0) {
+        this.typeFilter.push(type);
+      }
+    }
+  }
+
+  setSort(type, btn, inactiveBtn) {
+    this.sortType = type;
+    // Set other btn inactive
+    inactiveBtn.classList.add('inactive');
+    btn.classList.remove('inactive');
+    if (btn.classList.contains('asc')) {
+      this.sortMethod = -1;
+      btn.classList.toggle('asc');
+    } else {
+      this.sortMethod = 1;
+      btn.classList.toggle('asc');
+    }
+  }
+
   search(context) {
-    console.log(context['name']);
+    if (
+      context['numberFrom'] < 0 ||
+      context['numberFrom'] > 810 ||
+      context['numberFrom'] == ''
+    ) {
+      context['numberFrom'] = 0;
+    }
+    if (
+      context['numberTo'] < 0 ||
+      context['numberTo'] > 810 ||
+      context['numberTo'] == ''
+    ) {
+      context['numberTo'] = 810;
+    }
+    context['sortType'] = this.sortType;
+    context['sortMethod'] = this.sortMethod;
+    console.log(context);
     this.pokemonsService.search(context);
+  }
+
+  expandSearch(area) {
+    area.classList.toggle('expanded');
   }
 }
