@@ -4,13 +4,11 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently \"npm run build:watch\" \"ng serve\" \"npm run watch:sass\"",
+    "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build:sass": "node-sass src/assets/scss/ -o src/assets/css/",
-    "watch:sass": "npm run build:sass && node-sass src/assets/scss/ -wo src/assets/css/"
+    "e2e": "ng e2e"
   },
   "private": true,
   "dependencies": {
