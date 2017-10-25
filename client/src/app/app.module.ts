@@ -4,7 +4,11 @@ import { HttpModule } from '@angular/http';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatMenuModule
+} from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
 import { D3Service } from 'd3-ng2-service';
 
@@ -42,6 +46,7 @@ const appRoutes: Routes = [
     }),
     MatButtonModule,
     MatCheckboxModule,
+    MatMenuModule,
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only

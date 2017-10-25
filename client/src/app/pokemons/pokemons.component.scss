@@ -4,8 +4,7 @@ $hoverScale: 1.03;
 /* Pokemon Listing */
 
 .pokemons-listing {
-  padding: 5% 0 0 0;
-  height: 100vh;
+  padding: 20px 0 0 0;
   overflow: hidden;
 
   * {
@@ -16,7 +15,7 @@ $hoverScale: 1.03;
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
-    height: 90vh;
+    max-height: 90vh;
 
     @media screen and (max-width: 991px) {
       display: block;
