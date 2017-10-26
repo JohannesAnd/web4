@@ -227,15 +227,15 @@ $hoverScale: 1.03;
 
       @media screen and (max-width: 991px) {
         width: 100%;
-        max-height: 9%;
+        max-height: 60px;
         display: block;
         position: relative;
         margin: 0;
 
         &.expanded {
-          max-height: 60vh;
+          max-height: 680px;
           .dropdown-triangle {
-            transform: rotate(-90deg);
+            transform: rotate(0deg)!important;
           }
         }
 
@@ -269,7 +269,9 @@ $hoverScale: 1.03;
 
         .dropdown-triangle {
           position: absolute;
-          right: 0;
+          right: 20px;
+          top: 8px;
+          transform: rotate(90deg);
           opacity: 1;
           cursor: pointer;
 
@@ -302,7 +304,9 @@ $hoverScale: 1.03;
           width: calc(18% - 5px);
           margin: 3px 2px;
           padding: 3px;
-
+          &:hover{
+            cursor: pointer;
+          }
           &.disabled {
             filter: grayscale(100%);
             cursor: pointer !important;
@@ -319,6 +323,7 @@ $hoverScale: 1.03;
         width: 100%;
         margin: 20px 0;
         position: relative;
+        cursor: pointer;
 
         span {
           position: absolute;
@@ -331,6 +336,7 @@ $hoverScale: 1.03;
         width: 100%;
         margin: 20px 0 5px;
         position: relative;
+        cursor: pointer;
 
         span {
           position: absolute;
@@ -356,6 +362,7 @@ $hoverScale: 1.03;
         width: 100%;
         margin: 5px 0 20px;
         position: relative;
+        cursor: pointer;
 
         span {
           position: absolute;
