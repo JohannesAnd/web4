@@ -1,0 +1,12 @@
+.pagination .page-link {
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#itemsPerPageDropdown {
+  width: 100px;
+  max-width: 100%;
+}

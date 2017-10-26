@@ -19,6 +19,7 @@ import { PokemonsComponent } from './pokemons/pokemons.component';
 import { PokemonComponent } from './pokemon/pokemon.component';
 import { MypageComponent } from './mypage/mypage.component';
 import { StackedChartComponent } from './stackedchart/stackedchart.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     HomepageComponent,
     PokemonComponent,
     MypageComponent,
-    StackedChartComponent
+    StackedChartComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,

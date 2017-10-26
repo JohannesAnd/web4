@@ -1,0 +1,19 @@
+<div>
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="currentPage == 1">
+      <span class="page-link" (click)="goToPage(currentPage-1)">Previous</span>
+    </li>
+    <li *ngFor="let page of pages()" class="page-item" [class.active]="page == currentPage">
+      <span class="page-link" (click)="goToPage(page)">{{page}}</span>
+    </li>
+    <li class="page-item" [class.disabled]="currentPage == pages().length">
+      <span class="page-link" (click)="goToPage(currentPage+1)">Next</span>
+    </li>
+  </ul>
+  <div class="form-group">
+    <label for="itemsPerPageDropdown">Items per page</label>
+    <select class="form-control" id="itemsPerPageDropdown" (change)="changeItemsPerPage($event.target.value)">
+      <option *ngFor="let option of itemsPerPageOptions">{{option}}</option>
+    </select>
+  </div>
+</div>

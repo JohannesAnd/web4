@@ -15,6 +15,7 @@ export class PokemonsComponent implements OnInit {
   @ViewChild('getPokemons') getPokemons;
   pokemons$: Observable<Pokemon[]>;
   pokemonSubset$: Observable<Pokemon[]>;
+  pokemons: Array<Pokemon>;
 
   // Displaying n pokemons at a time
   n = 25;
@@ -50,10 +51,19 @@ export class PokemonsComponent implements OnInit {
   ngOnInit(): void {
     this.pokemons$ = this.pokemonsService.pokemons$;
     this.pokemonsService.getAllPokemons();
+    this.pokemons = [];
+    this.pokemons$.subscribe(pokemons => {
+      this.pokemons = pokemons || [];
+    });
 
     // init sort parameters
     this.sortType = 'number';
     this.sortMethod = 1;
+  }
+
+  handlePaginationChange(event) {
+    console.log("Page:", event.page);
+    console.log("Items Per Page:", event.itemsPerPage);
   }
 
   shadeColor2(color, percent) {
