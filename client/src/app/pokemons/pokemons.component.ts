@@ -51,13 +51,6 @@ export class PokemonsComponent implements OnInit {
     this.pokemons$ = this.pokemonsService.pokemons$;
     this.pokemonsService.getAllPokemons();
 
-    let i = 0;
-    console.log(this.pokemons$);
-
-    while (i < this.n) {
-      console.log(this.pokemons$[i]);
-      i++;
-    }
     // init sort parameters
     this.sortType = 'number';
     this.sortMethod = 1;
@@ -180,7 +173,7 @@ export class PokemonsComponent implements OnInit {
     }
     context['sortType'] = this.sortType;
     context['sortMethod'] = this.sortMethod;
-    console.log(context);
+
     this.pokemonsService.search(context);
   }
 

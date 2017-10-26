@@ -4,7 +4,7 @@
     <div #searchArea class="search-area">
       <h1 class="search-header">
         Explore
-        <span class="glyphicon glyphicon-triangle-left dropdown-triangle" aria-hidden="true" (click)="expandSearch(searchArea)"></span>
+        <span class="fa fa-chevron-down dropdown-triangle" aria-hidden="true" (click)="expandSearch(searchArea)"></span>
       </h1>
       <div class="name-group form-group">
         <label for="query-name" class="text-label">
@@ -48,13 +48,13 @@
       numberTo: toNumberField.value,
       typeList: typeFilter
       })">
-        Search <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+        Search <span class="fa fa-search" aria-hidden="true"></span>
       </button>
       <button #numberSortBtn class="btn btn-default number-sort asc" (click)="setSort('number', numberSortBtn, nameSortBtn)">
-        Order By Number <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+        Order By Number <span class="fa fa-sort-numeric-asc" aria-hidden="true"></span>
       </button>
       <button #nameSortBtn class="btn btn-default name-sort asc inactive" (click)="setSort('name', nameSortBtn, numberSortBtn)">
-        Order By Name <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+        Order By Name <span class="fa fa-sort-alpha-asc" aria-hidden="true"></span>
       </button>
     </div>
     <div class="shader-wrapper col-xs-12
